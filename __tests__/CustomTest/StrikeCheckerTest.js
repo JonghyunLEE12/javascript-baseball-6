@@ -23,6 +23,11 @@ describe('StrikeCheckerTest', () => {
       user: ['1', '2', '6'],
       expected: { strike: 2, ball: 0 },
     },
+    {
+      answer: ['2', '5', '7'],
+      user: ['5', '2', '1'],
+      expected: { strike: 0, ball: 2 },
+    },
   ];
 
   testCases.forEach((testCase) => {
