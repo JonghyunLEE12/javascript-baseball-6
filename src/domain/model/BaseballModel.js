@@ -1,4 +1,5 @@
 import { Random } from '@woowacourse/mission-utils';
+import { GAME_CONST } from '../baseballConst/constants.js';
 
 class BaseballModel {
   #ANSWER_NUMBER;
@@ -11,8 +12,11 @@ class BaseballModel {
 
   makeAnswerNumber() {
     const computer = [];
-    while (computer.length < 3) {
-      const number = Random.pickNumberInRange(1, 9);
+    while (computer.length < GAME_CONST.maxLength) {
+      const number = Random.pickNumberInRange(
+        GAME_CONST.NumberFrom,
+        GAME_CONST.NumberTo,
+      );
       if (!computer.includes(number)) {
         computer.push(number);
       }

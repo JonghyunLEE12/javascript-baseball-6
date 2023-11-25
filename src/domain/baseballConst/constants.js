@@ -37,3 +37,11 @@ export const STRIKE_BALL = {
   strike: 0,
   ball: 0,
 };
+
+export const GAME_CONST = {
+  strike: 3,
+  reGame: '1',
+  maxLength: 3,
+  NumberFrom: 1,
+  NumberTo: 9,
+};

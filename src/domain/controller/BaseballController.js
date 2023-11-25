@@ -1,4 +1,4 @@
-import { STATUS_MSG } from '../baseballConst/constants.js';
+import { STATUS_MSG, GAME_CONST } from '../baseballConst/constants.js';
 import { OutputView } from '../views/OutputView.js';
 import { InputView } from '../views/InputView.js';
 import BaseballModel from '../model/BaseballModel.js';
@@ -32,7 +32,7 @@ class BaseballController {
       this.BASEBALL_DATA.getUserNumber(),
     );
     OutputView.printResult(checkingConst);
-    if (checkingConst.strike === 3) {
+    if (checkingConst.strike === GAME_CONST.strike) {
       return this.#reGame();
     }
     return this.#inputNumber();
@@ -42,7 +42,7 @@ class BaseballController {
     OutputView.printStatus(STATUS_MSG.strike);
     try {
       const reGameNumber = await InputView.reGameNumber();
-      if (reGameNumber === '1') {
+      if (reGameNumber === GAME_CONST.reGame) {
         return this.gameStart();
       }
     } catch (error) {
