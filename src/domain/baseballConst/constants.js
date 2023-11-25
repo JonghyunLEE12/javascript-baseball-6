@@ -25,7 +25,10 @@ export const OUTPUT_MSG = {
 };
 
 export const ERROR_MSG = {
+  notSafeIntegerError: '[ERROR] 올바른 숫자가 아닙니다.',
   lengthError: '[ERROR] 3자리의 숫자만 입력해주세요.',
+  regexError: '[ERROR] 문자, 특수문자, 공백을 제외한 숫자만 입력해주세요.',
+  duplicateError: '[ERROR] 숫자가 중복되었습니다.',
 };
 
 export const STRIKE_BALL = {

@@ -43,7 +43,7 @@ class BaseballController {
     try {
       const reGameNumber = await InputView.reGameNumber();
       if (reGameNumber === '1') {
-        await this.gameStart();
+        return this.gameStart();
       }
     } catch (error) {
       throw error;
