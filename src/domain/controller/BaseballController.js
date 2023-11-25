@@ -13,7 +13,7 @@ class BaseballController {
       const userNumber = await InputView.readNumber();
       console.log(userNumber);
     } catch (error) {
-      OutputView.printError(error);
+      throw error;
     }
   }
 }

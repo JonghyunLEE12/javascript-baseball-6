@@ -5,3 +5,7 @@ export const STATUS_MSG = {
 export const INPUT_MSG = {
   inputNumber: '숫자를 입력해주세요 :',
 };
+
+export const ERROR_MSG = {
+  lengthError: '[ERROR] 3자리의 숫자만 입력해주세요.',
+};
