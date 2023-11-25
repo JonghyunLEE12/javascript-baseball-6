@@ -2,7 +2,7 @@ import { STATUS_MSG } from '../baseballConst/constants.js';
 import { OutputView } from '../views/OutputView.js';
 import { InputView } from '../views/InputView.js';
 import BaseballModel from '../model/BaseballModel.js';
-import { StrikeChecker } from '../utils/StrikeChecker.js';
+import StrikeChecker from '../utils/StrikeChecker.js';
 
 class BaseballController {
   constructor() {
@@ -25,7 +25,8 @@ class BaseballController {
   }
 
   #strikeCheck() {
-    const checkingConst = StrikeChecker.checking(
+    const checkStrike = new StrikeChecker();
+    const checkingConst = checkStrike.checking(
       this.BASEBALL_DATA.getAnswerNumber(),
       this.BASEBALL_DATA.getUserNumber(),
     );
