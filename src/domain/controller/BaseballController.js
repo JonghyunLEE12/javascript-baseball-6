@@ -11,6 +11,7 @@ class BaseballController {
 
   async gameStart() {
     OutputView.printStatus(STATUS_MSG.gameStart);
+    this.BASEBALL_DATA.updateAnswerNumber();
     await this.#inputNumber();
   }
 
@@ -18,15 +19,15 @@ class BaseballController {
     try {
       const userNumber = await InputView.readNumber();
       this.BASEBALL_DATA.updateUserNumber(userNumber);
-      this.#strikeCheck();
+      await this.#strikeCheck();
     } catch (error) {
       throw error;
     }
   }
 
-  #strikeCheck() {
+  async #strikeCheck() {
     const checkStrike = new StrikeChecker();
-    const checkingConst = checkStrike.checking(
+    const checkingConst = await checkStrike.checking(
       this.BASEBALL_DATA.getAnswerNumber(),
       this.BASEBALL_DATA.getUserNumber(),
     );
@@ -37,8 +38,21 @@ class BaseballController {
     return this.#inputNumber();
   }
 
-  #reGame() {
-    console.log('Finish');
+  async #reGame() {
+    OutputView.printStatus(STATUS_MSG.strike);
+    try {
+      const reGameNumber = await InputView.reGameNumber();
+      if (reGameNumber === '1') {
+        await this.gameStart();
+      }
+    } catch (error) {
+      throw error;
+    }
+    return this.#endGame();
+  }
+
+  #endGame() {
+    OutputView.printStatus(STATUS_MSG.gameOver);
   }
 }
 

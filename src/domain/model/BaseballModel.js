@@ -5,7 +5,7 @@ class BaseballModel {
 
   #USER_NUMBER;
 
-  constructor() {
+  updateAnswerNumber() {
     this.#ANSWER_NUMBER = this.makeAnswerNumber();
   }
 
