@@ -7,11 +7,11 @@ class BaseballValidator {
     this.#REGEX = /\s|[!@#$%^&*()?"':{}|<>]|[a-zA-Z]|[가-힣]/;
   }
 
-  async numberValidator(number) {
-    await this.#lengthCheck(number);
+  numberValidator(number) {
+    this.#lengthCheck(number);
   }
 
-  async #lengthCheck(number) {
+  #lengthCheck(number) {
     if (number.length !== 3) {
       throw new Error(ERROR_MSG.lengthError);
     }
