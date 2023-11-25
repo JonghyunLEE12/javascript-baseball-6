@@ -4,7 +4,7 @@ class BaseballValidator {
   #REGEX;
 
   constructor() {
-    this.#REGEX = /\s|[!@#$%^&*()?"':{}|<>]|[a-zA-Z]|[가-힣]/;
+    this.#REGEX = /\s|[.!@#$%^&*()?"':{}|<>]|[a-zA-Z]|[가-힣]/;
   }
 
   numberValidator(number) {
@@ -12,6 +12,13 @@ class BaseballValidator {
     this.#lengthCheck(number);
     this.#regaxCheck(number);
     this.#duplicateCheck(number);
+    this.#rangeCheck(number);
+  }
+
+  reGameValidator(number) {
+    this.#safeNumber(number);
+    this.#regaxCheck(number);
+    this.#reGameNumber(number);
   }
 
   #safeNumber(number) {
@@ -35,6 +42,19 @@ class BaseballValidator {
   #duplicateCheck(number) {
     if (new Set(number).size !== number.length) {
       throw new Error(ERROR_MSG.duplicateError);
+    }
+  }
+
+  #rangeCheck(number) {
+    const numberToList = number.split('');
+    if (numberToList.some((eachNumber) => eachNumber === '0')) {
+      throw new Error(ERROR_MSG.notZero);
+    }
+  }
+
+  #reGameNumber(number) {
+    if (number !== '1' && number !== '2') {
+      throw new Error(ERROR_MSG.reGameError);
     }
   }
 }

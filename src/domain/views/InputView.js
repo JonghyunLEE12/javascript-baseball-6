@@ -11,6 +11,7 @@ export const InputView = {
   },
   async reGameNumber() {
     const reGameNumber = await Console.readLineAsync(INPUT_MSG.reGame);
+    await this.NumberValidate.reGameValidator(reGameNumber);
     return reGameNumber;
   },
 };

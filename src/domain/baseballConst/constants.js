@@ -29,6 +29,8 @@ export const ERROR_MSG = {
   lengthError: '[ERROR] 3자리의 숫자만 입력해주세요.',
   regexError: '[ERROR] 문자, 특수문자, 공백을 제외한 숫자만 입력해주세요.',
   duplicateError: '[ERROR] 숫자가 중복되었습니다.',
+  reGameError: '[ERROR] 재게임 숫자는 1 또는 2로 입력해주세요',
+  notZero: '[ERROR] 1 부터 9 까지의 값만 입력해주세요',
 };
 
 export const STRIKE_BALL = {
